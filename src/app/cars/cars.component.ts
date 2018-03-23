@@ -11,6 +11,7 @@ export class CarsComponent implements OnInit {
 
   cars : Car[];
   properties : string[];
+  selectedCar : Car;
 
   constructor(private carService : CarService) { }
 
@@ -28,6 +29,10 @@ export class CarsComponent implements OnInit {
     if(this.cars && this.cars.length){
       this.properties = Object.getOwnPropertyNames(this.cars[0]);
     }
+  }
+
+  setSelectedCar(car : Car) : void {
+    this.selectedCar = car;
   }
 
 }

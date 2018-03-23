@@ -1,3 +1,13 @@
-<p>
-  car-detail works!
-</p>
+<div *ngIf="car">
+  <h2>{{car.Brand}}</h2>
+
+  <ul>
+    <li>Id: {{car.Id}}</li>
+    <li>Country: {{car.Country}}</li>
+    <li>Registration date: {{car.Registration | date}}</li>
+    <li>Creation date: {{car.Created_at | date}}</li>
+    <li>Last update date: {{car.Last_updated | date}}</li>
+  </ul>
+
+  
+</div>

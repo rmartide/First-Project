@@ -6,9 +6,10 @@
     <th>Registration Date</th>
   </tr>
   <tr *ngFor="let car of cars">
-    <td>{{car.Brand}}</td>
+    <td><span (click)="setSelectedCar(car)" class = "brand">{{car.Brand}}</span></td>
     <td>{{car.Country}}</td>
     <td>{{car.Registration | date}}</td>
   </tr>
 
 </table>
+<app-car-detail [car]="selectedCar"></app-car-detail>
