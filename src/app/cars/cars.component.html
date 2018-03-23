@@ -1,7 +1,14 @@
-<h2>Cars</h2>
+<table *ngIf="cars && cars.length" class="table">
 
-<ul *ngIf="cars && cars.length">
-  <li *ngFor="let car of cars">
-    {{car.Brand}}
-  </li>
-</ul>
+  <tr>
+    <th>Brand</th>
+    <th>Country</th>
+    <th>Registration Date</th>
+  </tr>
+  <tr *ngFor="let car of cars">
+    <td>{{car.Brand}}</td>
+    <td>{{car.Country}}</td>
+    <td>{{car.Registration | date}}</td>
+  </tr>
+
+</table>

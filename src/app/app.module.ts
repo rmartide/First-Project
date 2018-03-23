@@ -9,11 +9,13 @@ import { InMemoryDataService } from './in-memory-data.service';
 import { CarService } from './car.service';
 import { CarsComponent } from './cars/cars.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CarDetailComponent } from './car-detail/car-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CarsComponent
+    CarsComponent,
+    CarDetailComponent
   ],
   imports: [
     BrowserModule,
