@@ -10,6 +10,14 @@ import { CarService } from './car.service';
 import { CarsComponent } from './cars/cars.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CarDetailComponent } from './car-detail/car-detail.component';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes : Routes = [
+  {path:'', redirectTo:'cars', pathMatch:'full'},
+  {path:'cars', component: CarsComponent},
+  {path:'cars/:id', component: CarDetailComponent}
+]
+
 
 @NgModule({
   declarations: [
@@ -24,7 +32,8 @@ import { CarDetailComponent } from './car-detail/car-detail.component';
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, {dataEncapsulation: false}
-    )
+    ),
+    RouterModule.forRoot(routes)
     
   ],
   providers: [CarService],

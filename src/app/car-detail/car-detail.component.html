@@ -1,13 +1,12 @@
 <div *ngIf="car">
-  <h2>{{car.Brand}}</h2>
+  <h3>{{car.Brand}}</h3>
 
   <ul>
-    <li>Id: {{car.Id}}</li>
+    <li>Id: {{car.id}}</li>
     <li>Country: {{car.Country}}</li>
     <li>Registration date: {{car.Registration | date}}</li>
     <li>Creation date: {{car.Created_at | date}}</li>
     <li>Last update date: {{car.Last_updated | date}}</li>
   </ul>
-
-  
+  <button class="btn" (click)="goBack()">Return</button>
 </div>

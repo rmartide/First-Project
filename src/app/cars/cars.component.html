@@ -6,10 +6,14 @@
     <th>Registration Date</th>
   </tr>
   <tr *ngFor="let car of cars">
-    <td><span (click)="setSelectedCar(car)" class = "brand">{{car.Brand}}</span></td>
+    <td><a routerLink="{{car.id}}">{{car.Brand}}</a></td>
     <td>{{car.Country}}</td>
     <td>{{car.Registration | date}}</td>
   </tr>
 
 </table>
-<app-car-detail [car]="selectedCar"></app-car-detail>
+
+<div class="form-group">
+  <label for="fbrand">Filter by brand</label>
+  <input type="text" id="fbrand" class="form-control" #fbrand (keyup)="filterByBrand(fbrand.value)"/>
+</div>

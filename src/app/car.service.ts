@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import { catchError } from 'rxjs/operators';
 import { of } from 'rxjs/observable/of';
 import { Car } from './car';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 const httpOptions = { headers: new HttpHeaders({'Content-Type' : 'application/json'})};
 
@@ -20,6 +20,11 @@ export class CarService {
       .pipe(
         catchError(this.handleErrors('getCars', []))
       );
+  }
+
+  getCar(id: number): Observable<Car>{
+    const url = `${this.apiURL}/${id}`;
+    return this.http.get<Car>(url);
   }
   
   /**

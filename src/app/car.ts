@@ -1,5 +1,5 @@
 export class Car{
-    Id: number;
+    id: number;
     Brand: string;
     Registration: Date;
     Country: string;

@@ -9,30 +9,36 @@ import { Car } from '../car';
 })
 export class CarsComponent implements OnInit {
 
-  cars : Car[];
-  properties : string[];
-  selectedCar : Car;
+  cars: Car[];
+  carsCopy: Car[];
+  properties: string[];
+  selectedCar: Car;
 
-  constructor(private carService : CarService) { }
+  constructor(private carService: CarService) { }
 
   ngOnInit() {
     this.getCars();
   }
 
-  getCars() : void {
+  getCars(): void {
     this.carService.getCars().subscribe(cars => {
       this.cars = cars;
+      this.carsCopy = cars.slice();
     });
   }
 
-  getProperties() : void {
+  getProperties(): void {
     if(this.cars && this.cars.length){
       this.properties = Object.getOwnPropertyNames(this.cars[0]);
     }
   }
 
-  setSelectedCar(car : Car) : void {
+  setSelectedCar(car : Car): void {
     this.selectedCar = car;
+  }
+
+  filterByBrand(brand: string): void {
+    this.cars = this.carsCopy.filter(car => car.Brand.toLowerCase().includes(brand.toLowerCase()));
   }
 
 }
