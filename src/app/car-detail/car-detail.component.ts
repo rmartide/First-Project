@@ -31,4 +31,8 @@ export class CarDetailComponent implements OnInit {
     this.carService.updateCar(this.car).subscribe(() => this.goBack());
   }
 
+  delete(){
+    this.carService.deleteCar(this.car.id).subscribe(() => this.goBack());
+  }
+
 }

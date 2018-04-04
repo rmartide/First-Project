@@ -36,6 +36,13 @@ export class CarService {
         catchError(this.handleErrors<any>('updateCar'))
       );
   }
+
+  deleteCar(id: number): Observable<any>{
+    return this.http.delete(`${this.apiURL}/${id}`)
+      .pipe(
+        catchError(this.handleErrors<any>(`deleteCar id=${id}`))
+      );
+  }
   
   /**
    * Handle Http operation that failed.
