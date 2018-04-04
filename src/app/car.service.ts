@@ -24,7 +24,10 @@ export class CarService {
 
   getCar(id: number): Observable<Car>{
     const url = `${this.apiURL}/${id}`;
-    return this.http.get<Car>(url);
+    return this.http.get<Car>(url)
+      .pipe(
+        catchError(this.handleErrors<Car>(`getCar id=${id}`))
+      );
   }
   
   /**

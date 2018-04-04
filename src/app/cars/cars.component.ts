@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CarService } from '../car.service';
 import { Car } from '../car';
+import { MatDatepickerInputEvent } from '@angular/material';
 
 @Component({
   selector: 'app-cars',
@@ -39,6 +40,14 @@ export class CarsComponent implements OnInit {
 
   filterByBrand(brand: string): void {
     this.cars = this.carsCopy.filter(car => car.Brand.toLowerCase().includes(brand.toLowerCase()));
+  }
+
+  onSelected(event: MatDatepickerInputEvent<Date>): void {
+    this.cars = this.carsCopy.filter(car => this.sameDates(event.value, new Date(car.Registration)));
+  }
+
+  sameDates(a: Date, b: Date): Boolean{
+    return a.getDay() == b.getDay() && a.getMonth() == b.getMonth() && a.getUTCFullYear() == b.getUTCFullYear();
   }
 
 }

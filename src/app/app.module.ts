@@ -11,6 +11,8 @@ import { CarsComponent } from './cars/cars.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CarDetailComponent } from './car-detail/car-detail.component';
 import { RouterModule, Routes } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDatepickerModule, MatNativeDateModule } from '@angular/material';
 
 const routes : Routes = [
   {path:'', redirectTo:'cars', pathMatch:'full'},
@@ -33,8 +35,10 @@ const routes : Routes = [
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, {dataEncapsulation: false}
     ),
-    RouterModule.forRoot(routes)
-    
+    RouterModule.forRoot(routes),
+    BrowserAnimationsModule,
+    MatDatepickerModule,
+    MatNativeDateModule    
   ],
   providers: [CarService],
   bootstrap: [AppComponent]
