@@ -13,11 +13,13 @@ import { CarDetailComponent } from './car-detail/car-detail.component';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDatepickerModule, MatNativeDateModule } from '@angular/material';
+import { FormCarComponent } from './form-car/form-car.component';
 
 const routes : Routes = [
   {path:'', redirectTo:'cars', pathMatch:'full'},
   {path:'cars', component: CarsComponent},
-  {path:'cars/:id', component: CarDetailComponent}
+  {path:'cars/:id', component: CarDetailComponent},
+  {path:'new', component: FormCarComponent}
 ]
 
 
@@ -25,7 +27,8 @@ const routes : Routes = [
   declarations: [
     AppComponent,
     CarsComponent,
-    CarDetailComponent
+    CarDetailComponent,
+    FormCarComponent
   ],
   imports: [
     BrowserModule,

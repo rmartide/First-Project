@@ -1,3 +1,4 @@
+<button class="btn btn-secondary float-right my-1" routerLink="/new">Create Car</button>
 <div *ngIf="cars && cars.length">
   <table class="table">
 
@@ -18,10 +19,13 @@
 
   <div class="form-group">
     <label for="fbrand">Filter by brand</label>
-    <input type="text" id="fbrand" class="form-control" #fbrand (keyup)="filterByBrand(fbrand.value)" />
+    <input type="text" id="fbrand" class="form-control col-4" #fbrand (keyup)="filterByBrand(fbrand.value)" />
   </div>
 
-  <input [matDatepicker]="myDatepicker" (dateChange)="onSelected($event)">
-  <mat-datepicker-toggle [for]="myDatepicker"></mat-datepicker-toggle>
-  <mat-datepicker #myDatepicker></mat-datepicker>
+  <p>Filter by registration date</p>
+  <div class="row ml-0">
+    <input [matDatepicker]="myDatepicker" (dateChange)="onSelected($event)" class="form-control col-4">
+    <mat-datepicker-toggle class="col-1" [for]="myDatepicker"></mat-datepicker-toggle>
+    <mat-datepicker #myDatepicker></mat-datepicker>
+  </div>
 </div>

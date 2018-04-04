@@ -28,16 +28,6 @@ export class CarsComponent implements OnInit {
     });
   }
 
-  getProperties(): void {
-    if(this.cars && this.cars.length){
-      this.properties = Object.getOwnPropertyNames(this.cars[0]);
-    }
-  }
-
-  setSelectedCar(car : Car): void {
-    this.selectedCar = car;
-  }
-
   filterByBrand(brand: string): void {
     this.cars = this.carsCopy.filter(car => car.Brand.toLowerCase().includes(brand.toLowerCase()));
   }

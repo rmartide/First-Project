@@ -48,6 +48,14 @@ export class InMemoryDataService implements InMemoryDbService {
         Country: 'Japan',
         Created_at: 1121718105744,
         Last_updated: 1121718105744
+      },
+      {
+        id: 6,
+        Brand: 'Toyota',
+        Registration: 1021718105744,
+        Country: 'Japan',
+        Created_at: 1021718105744,
+        Last_updated: 1021718105744
       }
     ]
 

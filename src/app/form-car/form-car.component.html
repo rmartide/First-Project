@@ -1,0 +1,15 @@
+<form #f="ngForm">
+  <label for="ncbrand">Brand</label>
+  <input type="text" id="ncbrand" class="form-control col-4" name="Brand" ngModel/>
+  <label for="nccountry">Country</label>
+  <input type="text" id="nccountry" class="form-control col-4" name="Country" ngModel/>
+  <label>Registration date</label>
+  <div class="row ml-0">
+    <input [matDatepicker]="regDatepicker" class="form-control col-4" name="Registration" ngModel>
+    <mat-datepicker-toggle [for]="regDatepicker" class="col-1"></mat-datepicker-toggle>
+    <mat-datepicker #regDatepicker></mat-datepicker>
+  </div>
+  <hr>
+  <button class="btn btn-success" (click)="add(f)">Save</button>
+  <button class="btn" (click)="goBack()">Back</button>
+</form>

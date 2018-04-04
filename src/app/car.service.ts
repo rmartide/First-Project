@@ -26,7 +26,7 @@ export class CarService {
     const url = `${this.apiURL}/${id}`;
     return this.http.get<Car>(url)
       .pipe(
-        catchError(this.handleErrors<Car>(`getCar id=${id}`))
+        catchError(this.handleErrors<Car>(`getCar`))
       );
   }
 
@@ -40,7 +40,14 @@ export class CarService {
   deleteCar(id: number): Observable<any>{
     return this.http.delete(`${this.apiURL}/${id}`)
       .pipe(
-        catchError(this.handleErrors<any>(`deleteCar id=${id}`))
+        catchError(this.handleErrors<any>(`deleteCar`))
+      );
+  }
+
+  addCar(car: Car): Observable<Car>{
+    return this.http.post<Car>(this.apiURL, car, httpOptions)
+      .pipe(
+        catchError(this.handleErrors<any>('addCar'))
       );
   }
   
