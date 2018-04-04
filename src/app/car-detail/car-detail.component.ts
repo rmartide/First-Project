@@ -27,4 +27,8 @@ export class CarDetailComponent implements OnInit {
     this.location.back();
   }
 
+  save(){
+    this.carService.updateCar(this.car).subscribe(() => this.goBack());
+  }
+
 }

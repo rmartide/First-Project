@@ -3,10 +3,11 @@
 
   <ul>
     <li>Id: {{car.id}}</li>
-    <li>Country: {{car.Country}}</li>
+    <li>Country: <input type="text" [(ngModel)]="car.Country"/></li>
     <li>Registration date: {{car.Registration | date}}</li>
     <li>Creation date: {{car.Created_at | date}}</li>
     <li>Last update date: {{car.Last_updated | date}}</li>
   </ul>
+  <button class="btn btn-success" (click)="save()">Save</button>
   <button class="btn" (click)="goBack()">Return</button>
 </div>

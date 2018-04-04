@@ -29,6 +29,13 @@ export class CarService {
         catchError(this.handleErrors<Car>(`getCar id=${id}`))
       );
   }
+
+  updateCar(car: Car): Observable<any>{
+    return this.http.put(this.apiURL, car, httpOptions)
+      .pipe(
+        catchError(this.handleErrors<any>('updateCar'))
+      );
+  }
   
   /**
    * Handle Http operation that failed.
