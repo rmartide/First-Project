@@ -1,8 +1,8 @@
 export class Car{
     Id: number;
     Brand: string;
-    Registration: string;
+    Registration: Date;
     Country: string;
-    Created_at: string;
-    Last_updated: string;
+    Created_at: Date;
+    Last_updated: Date;
 }
